@@ -1,0 +1,185 @@
+/* This file includes all the variables, mixins, imports etc */
+
+@import 'compass';
+
+/*Mixins*/
+@mixin base-li-style {
+	display: inline-block;
+	width: 150px;
+	overflow: hidden;
+}
+
+@mixin state-box {
+	height: $base-unit * 5;
+	width: $base-unit * 6;
+	margin: $base-margin * 2;
+}
+
+@mixin hand-cursor {
+	cursor: pointer;
+	cursor: hand;
+}
+
+/* Colors */
+$red: #FBE4E4;
+$red-text: #C73344;
+$red-border: #C01A1b;
+
+$grey-color-light: #F6F8FC;
+$grey-border: #D5D5D7;
+$grey-text: #95959B;
+$grey: #EDF1F8;
+
+$blue: #EEF3F9;
+$blue-text: #5C90BD;
+$blue-border: #5C90BD;
+$blue-button: #5E9CD3;
+
+$green: #EEF3EC;
+$green-text: #548039;
+$green-border: #548039;
+
+$yellow: #FFD965;
+
+.red-box {
+	border: 2px solid $red-border;
+	color: $red-text;
+}
+
+.green-box {
+	border: 2px solid $green-border;
+	color: $green-text;
+}
+
+.text--blue {
+	color: $blue-text;
+}
+
+.text--dark {
+	color: #000;
+}
+
+/* Units */
+$base-unit: 32px;
+$half-base-unit: $base-unit / 2;
+
+/*Fonts*/
+$medium-font-size: $base-font-size - 2px;
+$milli-font-size: $medium-font-size - 2px;
+$micro-font-size: $milli-font-size - 2px;
+$nano-font-size: $micro-font-size - 2px;
+
+.headline-size {
+	font-size: $micro-font-size * 2;
+}
+
+.nano-font-size {
+	font-size: $nano-font-size;
+}
+
+/* Buttons */
+
+.action {
+	background-color: $blue-button;
+	color: white;
+	width: 100%;
+	min-height: $base-unit;
+	@include hand-cursor;
+	&:focus {
+		box-shadow: none;
+		outline: none;
+	}
+}
+
+/* Margins & Paddings */
+
+$base-margin: $half-base-unit / 2;
+$base-padding: $base-margin;
+
+.push-top--double { margin-top: 2 * $base-unit; }
+.push-left { margin-left: $base-unit; }
+.push-semi--top { margin-top: $base-unit}
+.push--top { margin-top: 20px; }
+.push-quarter--top { margin-top: 5px; }
+.push-half--top { margin-top: 10px; }
+.push-quarter--bottom { margin-bottom: 5px; }
+
+/*Lists*/
+$color-map: (
+	red: $red,
+	grey: $grey,
+	blue: $blue,
+	green: $green,
+	green_accepted: $green
+);
+
+$text-color-map: (
+	red: $red-text,
+	grey: $grey-text,
+	blue: $blue-text,
+	green: $green-text,
+	green_accepted: $green-text
+);
+
+$border-color-map: (
+	red: $red-border,
+	grey: $grey-border,
+	blue: $blue-border,
+	green: $green-border,
+	green_accepted: $green-border
+);
+
+.color-black {
+	color: black;
+}
+
+/* Heights */
+.height-20 {
+	height: 20%;
+}
+
+/* Width */
+.width-30 {
+	width: 30%;
+}
+
+
+/* Float */
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+/* Word Wrap */
+.wrap {
+	white-space: initial;
+}
+
+
+/* General Styles */
+
+h3 {
+	color: white;
+	font-size: $medium-font-size;
+}
+
+.hand-cursor {
+	@include hand-cursor;
+}
+
+.glass {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: 0.6;
+	top: 0;
+	left: 0;
+}
+
+.bold {
+	font-weight: bold;
+}
