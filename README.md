@@ -5,19 +5,29 @@ Open Weather is a UI prototype of displaying weather using openweather api based
 # Web Stack
 
 1) AngularJs (1.2.0)
+
 2) Compass (Used to import some crossplatform mixins and compile sass)
+
 3) RequireJs
 
 # App Structure
 
 -- app
+
 ---- controllers
+
 ---- views
+
 ---- directives
+
 ---- enums
+
 ---- assets
+
 ------ sass
+
 ------ stylesheeets
+
 ------ images
 
 # How to Run
