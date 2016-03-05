@@ -3,11 +3,13 @@ require.config({
 	paths: {
 		'angular': '../bower_components/angular/angular',
 		'angular-route': '../bower_components/angular-route/angular-route',
-		'text' : "../bower_components/requirejs-text/text"
+		'text': '../bower_components/requirejs-text/text',
+		'geolocation': '../bower_components/ngGeolocation/ngGeolocation.min'
 	},
 	shim: {
 		'angular' : { exports : 'angular' },
-		'angular-route' : { deps : ['angular'] }
+		'angular-route' : { deps : ['angular'] },
+		'geolocation' : { deps : ['angular'] }
 	}
 });
 

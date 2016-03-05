@@ -1,4 +1,4 @@
-define('app', ['angular', 'angular-route'], function (angular, ngRoute) {
+define('app', ['angular', 'angular-route', 'geolocation'], function (angular, ngRoute, ngGeolocation) {
 	'use strict';
-	return angular.module('openWeatherApp', ['ngRoute']);
+	return angular.module('openWeatherApp', ['ngRoute', 'ngGeolocation']);
 });

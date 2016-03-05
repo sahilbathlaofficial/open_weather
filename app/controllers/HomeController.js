@@ -1,8 +1,7 @@
-define('controllers/HomeController', ['app'], function (app) {
+define('controllers/HomeController', ['app', 'directives/WeatherDirective'], function (app) {
 	'use strict';
 
-	function HomeController($scope, $timeout) {
-	}
+	function HomeController($scope, $timeout) {}
 
 	HomeController.$inject = ['$scope', '$timeout'];
 

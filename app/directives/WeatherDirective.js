@@ -10,34 +10,39 @@
 define(['angular', 'app', 'text!views/shared/directives/weather.html'], function (ng, app, template) {
 	'use strict';
 
-	function WeatherDirective () {
+	var defaultGeoLocationOptions = {
+		enableHighAccuracy: true,
+		timeout: 5000,
+		maximumAge: 0
+	};
+
+	function WeatherDirective ($geolocation) {
 		return {
-			//Inherit scope from the parent.
-			scope: {
-				isOpen: '=controlVariable',
-				onClose: '&?',
-				content: '@',
-				title: '@'
-			},
 			restrict: 'E',
 			template: template,
 			compile: function () {
 				return function link(scope, element, attrs) {
-					// Move this modalbox to body because modal box spans to complete screen,
-					// so it shouldn't be interrupted by any other element's CSS (like overflow: hidden).
-					document.body.appendChild(element[0]);
 
-					scope.close = function close() {
-						scope.isOpen = false;
+					scope.getGeoLocation = function () {
+						$geolocation.getCurrentPosition(defaultGeoLocationOptions).then(scope.fetchLocation, scope.getManualLocation);
 					};
 
-					scope.$on('$destroy', function () {
-						element.remove();
-					});
+					scope.fetchLocation = function (location) {
+						scope.fetchedLocation = location;
+						scope.isManualLocationRequired = false;
+					};
+
+					scope.getManualLocation = function () {
+						scope.isManualLocationRequired = true;
+					}
+
+					scope.getGeoLocation();
 				};
 			}
 		};
 	}
 
-	app.directive('modalBox', WeatherDirective);
+	WeatherDirective.$inject = ['$geolocation'];
+
+	app.directive('weather', WeatherDirective);
 });

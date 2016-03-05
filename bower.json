@@ -5,6 +5,7 @@
     "requirejs": "~2.1.9",
     "requirejs-text": "~2.0.10",
     "angular": "1.2.0",
-    "angular-route": "1.2.0"
+    "angular-route": "1.2.0",
+    "ngGeolocation": ">=0.0.2"
   }
 }
