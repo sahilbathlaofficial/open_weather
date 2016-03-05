@@ -1,9 +1,13 @@
 <div>
 	<form ng-if="isManualLocationRequired" >
-		<input type="text" placeholder="Enter Zip or Country" ng-model="location"></input>
+		<input type="text" placeholder="Enter Zip" ng-model="location.zip"></input>
+		<span>or</span>
+		<input type="text" placeholder="Enter City or Country" ng-model="location.query"></input>
 		<button ng-click="fetchLocation(location)">Show Results</button>
 	</form>
-	<div ng-if="fetchedLocation">
-		{{ fetchedLocation.coords.latitude }}
+	<div ng-if="fetchedLocationWeather">
+		Forecast in {{ fetchedLocationWeather.city }} : {{ fetchedLocationWeather.forecast }} <br/>
+		Temperature :- {{ fetchedLocationWeather.temp }} Celsius <br/>
+		Humidity :- {{ fetchedLocationWeather.humidity }}
 	</div>
 </div>
