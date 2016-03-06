@@ -17,8 +17,11 @@ define(['angular', 'app', 'text!views/shared/directives/weather.html', 'services
 			compile: function () {
 				return function link(scope, element, attrs) {
 
+					scope.isFetchingWeatherData = true;
 					scope.fetchLocation = function (locationData) {
+						scope.isManualLocationRequired = false;
 						locationService.getLocation(locationData).then(function (weatherData) {
+							scope.isFetchingWeatherData = false;
 							if (weatherData.data.cod === '404') {
 								scope.hasNoWeatherData = true;
 								scope.isManualLocationRequired = true;
@@ -33,10 +36,10 @@ define(['angular', 'app', 'text!views/shared/directives/weather.html', 'services
 						}, function () {
 							alert('Could not fetch data for ' + JSON.stringify(locationData));
 						});
-						scope.isManualLocationRequired = false;
 					};
 
 					scope.getManualLocation = function () {
+						scope.isFetchingWeatherData = false;
 						scope.isManualLocationRequired = true;
 					}
 

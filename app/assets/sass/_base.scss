@@ -21,43 +21,7 @@
 }
 
 /* Colors */
-$red: #FBE4E4;
-$red-text: #C73344;
-$red-border: #C01A1b;
-
-$grey-color-light: #F6F8FC;
-$grey-border: #D5D5D7;
-$grey-text: #95959B;
-$grey: #EDF1F8;
-
-$blue: #EEF3F9;
-$blue-text: #5C90BD;
-$blue-border: #5C90BD;
-$blue-button: #5E9CD3;
-
-$green: #EEF3EC;
-$green-text: #548039;
-$green-border: #548039;
-
-$yellow: #FFD965;
-
-.red-box {
-	border: 2px solid $red-border;
-	color: $red-text;
-}
-
-.green-box {
-	border: 2px solid $green-border;
-	color: $green-text;
-}
-
-.text--blue {
-	color: $blue-text;
-}
-
-.text--dark {
-	color: #000;
-}
+$theme-color: #0079bf;
 
 /* Units */
 $base-unit: 32px;
@@ -80,9 +44,11 @@ $nano-font-size: $micro-font-size - 2px;
 /* Buttons */
 
 .action {
-	background-color: $blue-button;
+	background-color: $theme-color;
 	color: white;
 	width: 100%;
+	border: none;
+	border-radius: 2px;
 	min-height: $base-unit;
 	@include hand-cursor;
 	&:focus {
@@ -104,30 +70,11 @@ $base-padding: $base-margin;
 .push-half--top { margin-top: 10px; }
 .push-quarter--bottom { margin-bottom: 5px; }
 
+.push-top--20 {
+	margin-top: 20%;
+}
+
 /*Lists*/
-$color-map: (
-	red: $red,
-	grey: $grey,
-	blue: $blue,
-	green: $green,
-	green_accepted: $green
-);
-
-$text-color-map: (
-	red: $red-text,
-	grey: $grey-text,
-	blue: $blue-text,
-	green: $green-text,
-	green_accepted: $green-text
-);
-
-$border-color-map: (
-	red: $red-border,
-	grey: $grey-border,
-	blue: $blue-border,
-	green: $green-border,
-	green_accepted: $green-border
-);
 
 .color-black {
 	color: black;
@@ -182,4 +129,12 @@ h3 {
 
 .bold {
 	font-weight: bold;
+}
+
+.text--center {
+	text-align: center;
+}
+
+.uppercase {
+	text-transform:uppercase
 }
