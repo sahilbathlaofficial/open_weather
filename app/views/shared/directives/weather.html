@@ -15,7 +15,7 @@
 		<button ng-click="fetchLocation(location)" class="action width-30">Show Results</button>
 	</form>
 	<div ng-if="fetchedLocationWeather">
-		<div>Forecast in {{ fetchedLocationWeather.city }} : {{ fetchedLocationWeather.forecast }}</div>
+		<div>Forecast in <span class="bold">{{ fetchedLocationWeather.city }}</span> : {{ fetchedLocationWeather.forecast }}</div>
 		<div>Temperature :- {{ fetchedLocationWeather.temp }} Celsius</div>
 		<div>Humidity :- {{ fetchedLocationWeather.humidity }} </div>
 		<div class="text--center">

@@ -22,6 +22,8 @@
 
 /* Colors */
 $theme-color: #0079bf;
+$color-error: #a94442;
+$color-background-error : #f2dede;
 
 /* Units */
 $base-unit: 32px;
@@ -125,6 +127,15 @@ h3 {
 	opacity: 0.6;
 	top: 0;
 	left: 0;
+}
+
+.error {
+	color: $color-error;
+    text-align: center;
+    color: 2px solid red;
+    padding: 8px;
+    margin-bottom: 16px;
+    background-color: $color-background-error;
 }
 
 .bold {
