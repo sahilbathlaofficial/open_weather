@@ -1,6 +1,9 @@
 <div>
+	<div ng-if="hasNoWeatherData">
+		Could not fetch data for your query
+	</div>
 	<form ng-if="isManualLocationRequired" >
-		<input type="text" placeholder="Enter Zip" ng-model="location.zip"></input>
+		<input type="number" placeholder="Enter Zip" ng-model="location.zip"></input>
 		<span>or</span>
 		<input type="text" placeholder="Enter City or Country" ng-model="location.query"></input>
 		<button ng-click="fetchLocation(location)">Show Results</button>

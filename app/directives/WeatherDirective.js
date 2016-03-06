@@ -19,11 +19,16 @@ define(['angular', 'app', 'text!views/shared/directives/weather.html', 'services
 
 					scope.fetchLocation = function (locationData) {
 						locationService.getLocation(locationData).then(function (weatherData) {
-							scope.fetchedLocationWeather = {
-								forecast: weatherData.data.weather[0].main + '(' + weatherData.data.weather[0].description + ')',
-								temp: (weatherData.data.main.temp - 273).toFixed(1),
-								humidity: weatherData.data.main.humidity,
-								city: weatherData.data.name
+							if (weatherData.data.cod === '404') {
+								scope.hasNoWeatherData = true;
+								scope.isManualLocationRequired = true;
+							} else {
+								scope.fetchedLocationWeather = {
+									forecast: weatherData.data.weather[0].main + '(' + weatherData.data.weather[0].description + ')',
+									temp: (weatherData.data.main.temp - 273).toFixed(1),
+									humidity: weatherData.data.main.humidity,
+									city: weatherData.data.name
+								}
 							}
 						}, function () {
 							alert('Could not fetch data for ' + JSON.stringify(locationData));
