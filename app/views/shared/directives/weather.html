@@ -1,5 +1,5 @@
 <div>
-	<div ng-if="hasNoWeatherData">
+	<div ng-if="hasNoWeatherData" class="error">
 		Could not fetch data for your query
 	</div>
 	<form ng-if="isManualLocationRequired" >
@@ -11,6 +11,7 @@
 	<div ng-if="fetchedLocationWeather">
 		Forecast in {{ fetchedLocationWeather.city }} : {{ fetchedLocationWeather.forecast }} <br/>
 		Temperature :- {{ fetchedLocationWeather.temp }} Celsius <br/>
-		Humidity :- {{ fetchedLocationWeather.humidity }}
+		Humidity :- {{ fetchedLocationWeather.humidity }} <br/>
+		<button ng-click="resetLocation()">Try Another Location</button>
 	</div>
 </div>

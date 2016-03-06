@@ -40,6 +40,11 @@ define(['angular', 'app', 'text!views/shared/directives/weather.html', 'services
 						scope.isManualLocationRequired = true;
 					}
 
+					scope.resetLocation = function () {
+						scope.isManualLocationRequired = true;
+						delete scope.fetchedLocationWeather
+					}
+
 					locationService.getGeoLocation().then(scope.fetchLocation, scope.getManualLocation);
 				};
 			}
