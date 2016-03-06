@@ -3,7 +3,7 @@ require(['test-runner'], function (testRunner) {
 	describe('openWeatherApp', function () {
 
 		describe('Current Weather Api', function () {
-			var zipRequest;
+			var zipRequest, delay = 500;
 
 			beforeEach(function () {
 				var BASE_URL = 'http://api.openweathermap.org/data/2.5/weather',
@@ -11,13 +11,15 @@ require(['test-runner'], function (testRunner) {
 
 				zipRequest = function (zip) {
 					var responseDataPromise = $.Deferred();
-					$.ajax({
-						url: BASE_URL + '?zip=' + zip + '&appid=' + APP_ID,
-						dataType: 'json',
-						success: function(data) {
-							responseDataPromise.resolve(data);
-						}
-					});
+					setTimeout(function () {
+						$.ajax({
+							url: BASE_URL + '?zip=' + zip + '&appid=' + APP_ID,
+							dataType: 'json',
+							success: function(data) {
+								responseDataPromise.resolve(data);
+							}
+						});
+					}, delay);
 					return responseDataPromise;
 				}
 			});
