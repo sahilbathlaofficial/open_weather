@@ -21,8 +21,6 @@ requirejs(['app', 'angular', 'controllers/HomeController'], function (app, angul
 		$routeProvider.when('/', {
 			templateUrl: '/app/views/home.html',
 			controller: 'HomeController'
-		}).when('/greek', {
-			templateUrl: '/app/views/greek.html'
 		}).otherwise({redirectTo : '/'});
 	}]);
 
