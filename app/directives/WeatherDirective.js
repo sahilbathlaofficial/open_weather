@@ -7,10 +7,10 @@
  *
  * modal-controller is optional
  */
-define(['angular', 'app', 'text!views/shared/directives/weather.html', 'services/LocationService'], function (ng, app, template) {
+define(['angular', 'app', 'text!views/shared/directives/weather.html', 'services/LocationService', 'services/WeatherService'], function (ng, app, template) {
 	'use strict';
 
-	function WeatherDirective (locationService) {
+	function WeatherDirective (locationService, weatherService) {
 		return {
 			restrict: 'E',
 			template: template,
@@ -37,7 +37,7 @@ define(['angular', 'app', 'text!views/shared/directives/weather.html', 'services
 					scope.fetchLocation = function (locationData) {
 						scope.isManualLocationRequired = false;
 						scope.hasNoWeatherData = false;
-						locationService.getLocation(locationData).then(function (weatherData) {
+						weatherService.getWeatherData(locationData).then(function (weatherData) {
 							scope.isFetchingWeatherData = false;
 							if (weatherData.data.cod === '404') {
 								showErrorAndRetry();
@@ -65,7 +65,7 @@ define(['angular', 'app', 'text!views/shared/directives/weather.html', 'services
 		};
 	}
 
-	WeatherDirective.$inject = ['locationService'];
+	WeatherDirective.$inject = ['locationService', 'weatherService'];
 
 	app.directive('weather', WeatherDirective);
 });
