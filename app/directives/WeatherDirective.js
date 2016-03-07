@@ -27,6 +27,7 @@ define(['angular', 'app', 'text!views/shared/directives/weather.html', 'services
 					}
 
 					function showErrorAndRetry() {
+						scope.isFetchingWeatherData = false;
 						scope.hasNoWeatherData = true;
 						scope.isManualLocationRequired = true;
 					}
