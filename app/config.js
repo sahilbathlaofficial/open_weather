@@ -18,12 +18,10 @@ requirejs(['app', 'angular', 'controllers/HomeController'], function (app, angul
 
 	/* Handle Routes */
 	app.config(['$routeProvider', function ($routeProvider) {
-		$routeProvider.when('/', {
-			templateUrl: '/app/views/home.html',
+		$routeProvider.when('/open-weather', {
+			templateUrl: 'app/views/home.html',
 			controller: 'HomeController'
-		}).when('/greek', {
-			templateUrl: '/app/views/greek.html'
-		}).otherwise({redirectTo : '/'});
+		}).otherwise({redirectTo : '/open-weather'});
 	}]);
 
 	angular.bootstrap(document, ['openWeatherApp']);
